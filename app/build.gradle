@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
+    buildToolsVersion "26.0.2"
+
     defaultConfig {
-        applicationId "com.example.test"
         minSdkVersion 15
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -19,6 +19,6 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':library')
+//    compile project(':library')
+    compile 'com.android.xl.view:AutoHorizionChangeLineViews:1.0.0'
 }

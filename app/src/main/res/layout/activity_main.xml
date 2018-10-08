@@ -17,7 +17,6 @@
         app:item_horizion_space= "15dp"
         app:item_text_size= "15"
         app:item_text_color= "#00ff00"
-        app:item_text_bg="@drawable/dd_shape_f64e45_stroke_f64e45_content_17"
         android:paddingRight="15dp"
         android:paddingLeft="15dp"
         android:paddingTop="30dp"
