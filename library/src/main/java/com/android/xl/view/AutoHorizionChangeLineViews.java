@@ -47,8 +47,10 @@ public class AutoHorizionChangeLineViews extends RelativeLayout {
      * 垂直的间距
      */
     private float itemVerticlSpace = padding_15;
-
-    private int textSize = 15;
+    /**
+     * 文本字体大小
+     */
+    private float textSize = 15;
 
     private int[] ids = new int[]{R.id.id_horizionview_1,
             R.id.id_horizionview_2,
@@ -65,6 +67,7 @@ public class AutoHorizionChangeLineViews extends RelativeLayout {
      * 背景
      */
     private Drawable textViewBackground = getResources().getDrawable(R.drawable.dd_shape_1a389bee_content_15);
+    private int textViewBackgroundRes = (R.drawable.dd_shape_1a389bee_content_15);
 
     private OnTextViewItemClickListener onTextViewItemClickListener;
 
@@ -78,6 +81,9 @@ public class AutoHorizionChangeLineViews extends RelativeLayout {
             TypedArray arr = getContext().obtainStyledAttributes(attrs, R.styleable.AutoHorizionChangeLineViews, 0, 0);
             itemHorizionSpace = arr.getDimension(R.styleable.AutoHorizionChangeLineViews_item_horizion_space, padding_15);
             itemVerticlSpace = arr.getDimension(R.styleable.AutoHorizionChangeLineViews_item_verticl_space, padding_15);
+            textColor = arr.getColor(R.styleable.AutoHorizionChangeLineViews_item_text_color, getResources().getColor(R.color.blue_6186a6));
+            textSize = arr.getInt(R.styleable.AutoHorizionChangeLineViews_item_text_size, 15);
+            textViewBackgroundRes = arr.getResourceId(R.styleable.AutoHorizionChangeLineViews_item_text_bg,R.drawable.dd_shape_1a389bee_content_15);
             arr.recycle();
         }
     }
@@ -88,6 +94,9 @@ public class AutoHorizionChangeLineViews extends RelativeLayout {
             TypedArray arr = getContext().obtainStyledAttributes(attrs, R.styleable.AutoHorizionChangeLineViews, 0, 0);
             itemHorizionSpace = arr.getDimension(R.styleable.AutoHorizionChangeLineViews_item_horizion_space, padding_15);
             itemVerticlSpace = arr.getDimension(R.styleable.AutoHorizionChangeLineViews_item_verticl_space, padding_15);
+            textColor = arr.getColor(R.styleable.AutoHorizionChangeLineViews_item_text_color, getResources().getColor(R.color.blue_6186a6));
+            textSize = arr.getInt(R.styleable.AutoHorizionChangeLineViews_item_text_size, 15);
+            textViewBackgroundRes = arr.getResourceId(R.styleable.AutoHorizionChangeLineViews_item_text_bg,R.drawable.dd_shape_1a389bee_content_15);
             arr.recycle();
         }
     }
@@ -125,7 +134,7 @@ public class AutoHorizionChangeLineViews extends RelativeLayout {
             textViews[i].setSingleLine(true);
             textViews[i].setEllipsize(TextUtils.TruncateAt.END);
             textViews[i].setTextColor(textColor);
-            Log.e("my","ids[i]:" + ids[i] + "  i:" + i);
+            Log.i("xx","ids[i]:" + ids[i] + "  i:" + i);
             textViews[i].setId(ids[i]);
             textViews[i].setPadding((int)padding_15,0,(int)padding_15,0);
             final int index = i;
@@ -137,8 +146,8 @@ public class AutoHorizionChangeLineViews extends RelativeLayout {
                     }
                 }
             });
-            textViews[i].setBackgroundResource(R.drawable.dd_shape_1a389bee_content_15);
-            textViews[i].setGravity(Gravity.CENTER);
+            textViews[i].setBackgroundResource(textViewBackgroundRes);
+            textViews[i].setGravity(Gravity.CENTER_VERTICAL);
             float width1 = textViews[i].getPaint().measureText(text) + padding_15 * 2;
             textWidths.add(width1);
             LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
@@ -161,8 +170,8 @@ public class AutoHorizionChangeLineViews extends RelativeLayout {
             LayoutParams layoutParams = textLayoutParams.get(i);
             TextView textView = textViews[i];
             float h_width = alreadyWidth + textWidths.get(i) + itemHorizionSpace;
-            Log.e("my","第" + i + "textview" + textWidths.get(i) + "h_width:" + h_width);
-            Log.e("my","id:" + ids[i-1] + "  index:" + (i-1) +  "  text:" + texts.get(i));
+            Log.i("xx","第" + i + "textview" + textWidths.get(i) + "h_width:" + h_width);
+            Log.i("xx","id:" + ids[i-1] + "  index:" + (i-1) +  "  text:" + texts.get(i));
             if(h_width < width){
                 //部署同一行
                 alreadyWidth = h_width;
@@ -172,7 +181,7 @@ public class AutoHorizionChangeLineViews extends RelativeLayout {
                     layoutParams.addRule(verb, subject);
                 }
                 layoutParams.leftMargin = (int)itemHorizionSpace;
-                Log.e("my","同一行 " + i + "  textviewwidth:" + textWidths.get(i) + "  h_width:" + h_width);
+                Log.i("xx","同一行 " + i + "  textviewwidth:" + textWidths.get(i) + "  h_width:" + h_width);
                 addView(textView, layoutParams);
             } else {
                 //下一行
@@ -181,10 +190,18 @@ public class AutoHorizionChangeLineViews extends RelativeLayout {
                 verb = RelativeLayout.BELOW;
                 subject = ids[i-1];
                 layoutParams.topMargin = (int)itemVerticlSpace;
-                Log.e("my","下一行 " + i + "  textviewwidth:" + textWidths.get(i) + "  h_width:" + h_width );
+                Log.i("xx","下一行 " + i + "  textviewwidth:" + textWidths.get(i) + "  h_width:" + h_width );
                 addView(textView, layoutParams);
             }
         }
+    }
+
+    /**
+     * 获取文本控件
+     * @return
+     */
+    public TextView[] getTextViews() {
+        return textViews;
     }
 
     public void setOnTextViewItemClickListener(OnTextViewItemClickListener onTextViewItemClickListener) {

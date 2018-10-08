@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="AutoHorizionChangeLineViews">
-
         <attr name="item_horizion_space" format="dimension"/>
         <attr name="item_verticl_space" format="dimension"/>
-        <attr name="padding_right" format="float"/>
-
-
+        <attr name="item_text_size" format="integer"/>
+        <attr name="item_text_color" format="color"/>
+        <attr name="item_text_bg" format="reference"/>
     </declare-styleable>
 
 </resources>
