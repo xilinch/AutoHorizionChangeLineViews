@@ -1,5 +1,5 @@
 # AutoHorizionChangeLineViews
-# 水平布局文本内容，一行不够的话，自动切换到下一行，最多显示8个文字符串。
+# 水平布局文本内容，一行不够的话，自动切换到下一行，最多显示8个文本符串。
 # 首先看一下效果：
 ![](https://github.com/xilinch/AutoHorizionChangeLineViews/blob/master/pic/xt.webp)
 
