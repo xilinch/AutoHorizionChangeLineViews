@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"/>
+    <com.android.xl.view.AutoHorizionChangeLineViews
+        app:item_verticl_space= "15dp"
+        app:item_horizion_space= "15dp"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp"
+        android:background="#ffffff"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/autoHorizionChangeLineViews"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.android.xl.view.AutoHorizionChangeLineViews>
+</RelativeLayout>
