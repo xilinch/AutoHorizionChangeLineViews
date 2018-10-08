@@ -50,15 +50,13 @@ dependencies {
         autoHorizionChangeLineViews.setTexts(replys);
 
 
-## 4.高级，自定义属性
+## 4.自定义属性
+        app:item_verticl_space= "15dp"
+        app:item_horizion_space= "15dp"
+        app:item_text_size= "15"
+        app:item_text_color= "#00ff00"
+        app:item_text_bg= "#00ff00"
 
- <declare-styleable name="AutoHorizionChangeLineViews">
-        <attr name="item_horizion_space" format="dimension"/>
-        <attr name="item_verticl_space" format="dimension"/>
-        <attr name="item_text_size" format="integer"/>
-        <attr name="item_text_color" format="color"/>
-        <attr name="item_text_bg" format="reference"/>
-    </declare-styleable>
     
 ## 5.注意。
    setOnTextViewItemClickListener 要在setTexts方法前调用。
